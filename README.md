@@ -16,6 +16,7 @@ For this project, I am using the Yelp API(specifically the /businesses/search en
 
 ## Post MVP
 * Add currency exchange functionality for users that are using the app during foreign travels.
+* Make the home page background image update display a new image every time the page loads
 
 # React Component Hierarchy
 ```javascript
@@ -25,7 +26,7 @@ For this project, I am using the Yelp API(specifically the /businesses/search en
     1. <HomeSearch />
     2. <Suggestions />
 
-  <SpecificHeader>
+  <SpecificHeader />
 
   <SpecificSearch />
 
