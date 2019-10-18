@@ -14,8 +14,9 @@ class App extends React.Component {
   }
   
   componentDidMount = async () => {
-    let findSomething = await getYelp('10001');
-    console.log(findSomething);
+    let onLoad = await getYelp('10001');
+    let findPlace = await getYelp('');
+    console.log(onLoad);
   }
   
   render() {
