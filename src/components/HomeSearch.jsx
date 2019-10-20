@@ -1,18 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function HomeSearch() {
+export default function HomeSearch(props) {
   return (
     <>
       <div id="home-search">
-        <form>
-          <input type="text" placeholder="Food item, Restaurant name..." />
-          <input type="text" placeholder="Location city, address..." />
+        <form onSubmit={props.handleSubmit}>
+          <input type="text" placeholder="Food item, Restaurant name..." name="restaurant" onChange={props.handleChange}/>
+          <input type="text" placeholder="Location city, address..." name="location" onChange={props.handleChange}/>
           <select>
             {
               
             }
           </select>
-          <input type="button" value="Search"/>
+          {/* <Link to={'/specific-search '}> */}
+            <button>Search</button>
+          {/* </Link> */}
         </form>
      </div>
     </>

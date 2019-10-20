@@ -12,15 +12,27 @@ export const currencyList = async function () {
   let response = await axios.get(`http://apilayer.net/api/list? access_key=${currencyLayerApiKey}`);
   return response;
 }
+
+export const onLoadOptions = async function () {
+  let response = await axios.get(`https://freegeoip.app/json/`)
+  // let latLong = response.
+  // console.log(response)
+  return response;
+}
+
+
 const options = {
   headers: {
     Authorization: `Bearer ${token}`
   }
 }
 
-export const getYelp = async function (location) {
-  let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${location}`, options)
+export const getYelp = async function (restaurant,location) {
+  let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${restaurant}&location=${location}`, options)
   return response;
 }
 
-
+export const getYelpOnLoad = async function (city) {
+  let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${city}`, options)
+  return response;
+}

@@ -43,8 +43,12 @@ body {
   height: 30px;
 }
 
-/* #suggestions {
-  width: 100%;
-  height: 1000px;
-  background-color: red;
-} */
+#suggestions {
+display: grid;
+background-color: white;
+margin-top: 30px;
+}
+
+.on-load-results {
+  height: 350px;
+}
