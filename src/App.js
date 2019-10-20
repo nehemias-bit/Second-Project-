@@ -59,8 +59,8 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header />
-        <Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad}/>
-        {/* <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} search={this.state.search}/>)} /> */}
+        {/* <Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad}/> */}
+        <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad}/>)} />
         <Route path={"/specific-search"} render={() => (<SpecificSearch />)}/>
       </div>
     );

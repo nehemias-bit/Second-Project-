@@ -1,5 +1,5 @@
 body {
-  background: url("https://images.pexels.com/photos/264537/pexels-photo-264537.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat top center fixed;
+  background: url("https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat top center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -8,14 +8,20 @@ body {
 }
 
 #header {
-  height: 120px;
-  font-family: 'Zhi Mang Xing', cursive;
-  font-weight: bold;
+  height: 92px;
+  font-family: 'Quattrocento Sans', sans-serif;
   font-size: 2.5em;
-  color: #FA6601;
   line-height: 117px;
-  background-color: white;
+  background-color: rgba(255,255,255,.9);
   width: 100%;
+  display: grid;
+  grid-template-columns: 90% 30%;
+  color: #B32300;
+}
+
+#header-link {
+  color: #B32300;
+  text-decoration: none;
 }
 
 #header h1 {
@@ -23,32 +29,86 @@ body {
   padding-left: 30px;
 }
 
-#home-search {
+form {
   height: 254px;
   width: 43%;
-  background-color: #F4F6F8;
+  background-color: #FFF9F7;
   box-shadow: 5px 5px 15px black;
   border-radius: 5px;
   margin-top: 100px;
   margin-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
 }
 
-#home-search form {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+ #restaurant {
+  height: 50px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 3px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
+} 
+
+#location {
+  height: 50px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
 }
 
-#home-search input[type='text'] {
-  width: 180px;
-  height: 30px;
+select {
+  width: 40%;
+  height: 32px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+#form-link button {
+  width: 450px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 30px;
+}
+
+#form-link button:hover {
+  border: 4px solid black;
 }
 
 #suggestions {
 display: grid;
-background-color: white;
+grid-template-columns: 1fr 1fr 1fr; 
+grid-column-gap: 5px; 
+grid-row-gap: 5px;
+background-color: #FFF9F7;
 margin-top: 30px;
 }
 
 .on-load-results {
-  height: 350px;
+  box-shadow: 5px 10px 5px grey;
+  margin: 0 auto;
+  width: 80%;
+  background-color: white;
+}
+
+.on-load-results img {
+  width: 100%;
+}
+
+.on-load-results h4 {
+  display: inline;
+}
+
+.on-load-results h1, p {
+  margin: 0;
 }
