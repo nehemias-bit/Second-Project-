@@ -1,23 +1,22 @@
 import React from 'react';
 
-class SpecificSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: this.props.search
-    }
-    console.log(props)
-  }
-
-
-  render() {
-
+export default function SpecificSearch(props) {
     return (
-      <>
-
-      </>
+      <div id="results-page">
+        {
+          props.search.map(each => (
+            <div className="search-results" key={each.id}>
+              <h1>{each.name}</h1>
+              <img src={each.image_url} alt="restaurant" />
+              <p><strong>Phone Number:</strong>{each.display_phone ? each.display_phone : 'Working on it!'}</p>
+              <h4>{each.price}</h4>
+              <p><strong>Rating:</strong> {each.rating} Based Off {each.review_count} Reviews</p>
+              <h4>Deliver: {each.transactions[0] ? 'Yes!' : 'No Sorry!'}</h4> <br/> <br/>
+              <a href={each.url} target="_blank" rel="noopener noreferrer" >Visit Website!</a>
+            </div>
+          ))
+          
+        }
+      </div>
     )
-  }
 }
-
-export default SpecificSearch;

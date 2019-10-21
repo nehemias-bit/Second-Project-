@@ -15,9 +15,7 @@ export default function HomeSearch(props) {
           <option>3</option>
           <option>4</option>
         </select>
-        {/* <Link to="/specific-search" id="form-link"> */}
-          <button>Search</button>
-        {/* </Link> */}
+        <button id="form-link">Search</button>
       </form>
       {/* </div> */}
     </>

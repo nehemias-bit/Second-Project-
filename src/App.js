@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import SpecificSearch from './components/SpecificSearch';
@@ -47,26 +47,23 @@ class App extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
     let userSearch = await getYelp(this.state.restaurant, this.state.location, this.state.price);
     console.log(userSearch)
     this.setState({
       search: userSearch.data.businesses
     })
-
-
+    this.props.history.push('/specific-search'); // On submit this form will route to the SpecificSearch component with the route
+                                                 // in this render function. This history.push('/specific-search') is acting as a link
   }
 
   render() {
-
     return (
       <div className="app">
         <Header />
         <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
-        {/* {this.state.search && <Route exact path="/specific-search" render={(props) => (<SpecificSearch {...props} search={this.state.search} />)} />} */}
-        <SpecificSearch />
+        <Route exact path="/specific-search" render={() => (<SpecificSearch search={this.state.search} />)} />
       </div>
     );
   }
 }
-export default App;
+export default withRouter(App);

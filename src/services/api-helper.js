@@ -14,12 +14,9 @@ export const currencyList = async function () {
 }
 
 export const onLoadOptions = async function () {
-  let response = await axios.get(`https://freegeoip.app/json/`)
-  // let latLong = response.
-  // console.log(response)
+  let response = await axios.get(`https://freegeoip.app/json/`);
   return response;
 }
-
 
 const options = {
   headers: {
