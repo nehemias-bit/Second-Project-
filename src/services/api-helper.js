@@ -27,9 +27,9 @@ const options = {
   }
 }
 
-export const getYelp = async function (restaurant, location) {
+export const getYelp = async function (restaurant, location, price) {
   
-  let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${restaurant}&location=${location}`, options)
+  let response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${restaurant}&location=${location}&price=${price}`, options)
   console.log(typeof response)
   return response;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Headroom 
+// import Headroom from 'headroom';
 
 export default function Header() {
   return (

@@ -8,16 +8,16 @@ export default function HomeSearch(props) {
       <form onSubmit={props.handleSubmit}>
         <input type="text" placeholder="Food Item, Restaurant Name..." name="restaurant" onChange={props.handleChange} id="restaurant" />
         <input type="text" placeholder="City or Address or Zip Code..." name="location" onChange={props.handleChange} id="location" />
-        <select>
-          {
-            props.onLoad.map(each => (
-              each.price && <option key={each.id}>{each.price}</option>
-            ))
-          }
+        <select onChange={props.handleChange} name="price" defaultValue="Price Option">
+          <option disabled value="Price Option">Price Option</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
         </select>
-        <Link to="/specific-search" id="form-link">
+        {/* <Link to="/specific-search" id="form-link"> */}
           <button>Search</button>
-        </Link>
+        {/* </Link> */}
       </form>
       {/* </div> */}
     </>

@@ -18,6 +18,7 @@ class App extends React.Component {
       onLoad: [],
       location: '',
       restaurant: '',
+      price: '',
       search: []
     }
   }
@@ -47,7 +48,7 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    let userSearch = await getYelp(this.state.restaurant, this.state.location);
+    let userSearch = await getYelp(this.state.restaurant, this.state.location, this.state.price);
     console.log(userSearch)
     this.setState({
       search: userSearch.data.businesses
@@ -62,8 +63,8 @@ class App extends React.Component {
       <div className="app">
         <Header />
         <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
-        {this.state.search && <Route exact path="/specific-search" render={(props) => (<SpecificSearch {...props} search={this.state.search} />)} />}
-        {/* <SpecificSearch /> */}
+        {/* {this.state.search && <Route exact path="/specific-search" render={(props) => (<SpecificSearch {...props} search={this.state.search} />)} />} */}
+        <SpecificSearch />
       </div>
     );
   }
