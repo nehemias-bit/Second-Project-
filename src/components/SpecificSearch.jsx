@@ -4,19 +4,17 @@ class SpecificSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: []
+      results: this.props.search
     }
+    console.log(props)
   }
 
-  componentDidMount = () => {
-    // let result = props.search
-  }
 
   render() {
-    
+
     return (
       <>
-        
+
       </>
     )
   }

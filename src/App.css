@@ -33,6 +33,16 @@ body {
   color: black;
 }
 
+/* #header-two {
+  margin-top: 95px;
+  height: 100px;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+} */
+
 form {
   height: 254px;
   width: 43%;

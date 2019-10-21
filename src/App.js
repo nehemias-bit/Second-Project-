@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import { Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
+import SpecificSearch from './components/SpecificSearch';
 import { getYelp } from './services/api-helper';
 import { getYelpOnLoad } from './services/api-helper';
 import { onLoadOptions } from './services/api-helper';
-import SpecificSearch from './components/SpecificSearch';
-import { Route } from 'react-router-dom';
+import './App.css';
 
 
 class App extends React.Component {
@@ -40,31 +40,32 @@ class App extends React.Component {
     let name = event.target.name;
     let value = event.target.value;
     this.setState({
-      [name]: value,
       [name]: value
     })
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
+
     let userSearch = await getYelp(this.state.restaurant, this.state.location);
-    this.setState({
-      search: userSearch
-    })
     console.log(userSearch)
+    this.setState({
+      search: userSearch.data.businesses
+    })
+
+
   }
-  
+
   render() {
 
     return (
       <div className="app">
         <Header />
-        {/* <Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad}/> */}
-        <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad}/>)} />
-        <Route path={"/specific-search"} render={() => (<SpecificSearch />)}/>
+        <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
+        {this.state.search && <Route exact path="/specific-search" render={(props) => (<SpecificSearch {...props} search={this.state.search} />)} />}
+        {/* <SpecificSearch /> */}
       </div>
     );
   }
 }
-
 export default App;
