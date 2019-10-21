@@ -160,3 +160,13 @@ margin-top: 30px;
 .search-results img {
   width: 100%;
 }
+
+@media only screen and (max-width:375px) {
+  header {
+    font-size: 1em;
+  }
+
+  #suggestions {
+    grid-template-columns: 1fr;
+  }
+}
