@@ -33,32 +33,7 @@ body {
   color: black;
 }
 
-.headroom {
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: blue;
-  height: 100px;
-}
-
-.headroom--unfixed {
-  position: relative;
-  transform: translateY(-100);
-}
-.headroom--scrolled {
-  transition: transform 5000ms ease-in-out;
-}
-.headroom--unpinned {
-  position: fixed;
-  transform: translateY(-100%);
-  display: none;
-}
-.headroom--pinned {
-  position: fixed;
-  transform: translateY(0%);
-}
-
-form {
+#home-search form {
   height: 254px;
   width: 43%;
   background-color: #FFF9F7;
@@ -74,8 +49,8 @@ form {
 }
 
  #restaurant {
-  height: 50px;
-  width: 250px;
+   height: 50px;
+   width: 250px;
   margin-top: 20px;
   margin-left: 3px;
   border-radius: 5px;
@@ -93,7 +68,7 @@ form {
   font-size: 18px;
 }
 
-select {
+#home-search select {
   width: 40%;
   height: 32px;
   border-radius: 5px;
@@ -101,7 +76,7 @@ select {
   font-size: 18px;
 }
 
- button {
+#home-search button {
   width: 450px;
   height: 40px;
   margin-bottom: 20px;
@@ -110,7 +85,7 @@ select {
   font-size: 30px;
 }
 
-button:hover {
+#home-search button:hover {
   border: 4px solid black;
 }
 
@@ -161,11 +136,25 @@ margin-top: 30px;
   width: 100%;
 }
 
+#header-two {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+​
+#header-two form {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
 @media only screen and (max-width:375px) {
   header {
     font-size: 1em;
   }
-
+  
   #suggestions {
     grid-template-columns: 1fr;
   }

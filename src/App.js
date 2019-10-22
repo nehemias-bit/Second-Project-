@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import Header from './components/Header';
+import HeaderTwo from './components/HeaderTwo';
 import Home from './components/Home';
 import SpecificSearch from './components/SpecificSearch';
 import { getYelp } from './services/api-helper';
@@ -10,8 +11,8 @@ import './App.css';
 
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       backgroundImg: [],
       city: '',
@@ -19,11 +20,15 @@ class App extends React.Component {
       location: '',
       restaurant: '',
       price: '',
-      search: []
+      search: [],
+      // tracks the pages y-axis
+      scrollY: null
     }
   }
 
   componentDidMount = async () => {
+    //Add window event listener
+    window.addEventListener('scroll', this.handleScroll)
     let location = await onLoadOptions();
     let city = location.data.city;
     this.setState({
@@ -36,6 +41,13 @@ class App extends React.Component {
     })
     console.log(onLoad);
   }
+
+  //Updates stae with the Y-Axis as the user scrolls
+  handleScroll = () => {
+    this.setState({
+      scrollY: window.scrollY
+    });
+  } 
 
   handleChange = (event) => {
     let name = event.target.name;
@@ -53,15 +65,23 @@ class App extends React.Component {
       search: userSearch.data.businesses
     })
     this.props.history.push('/specific-search'); // On submit this form will route to the SpecificSearch component with the route
-                                                 // in this render function. This history.push('/specific-search') is acting as a link
+    // in this render function. This history.push('/specific-search') is acting as a link
   }
 
   render() {
+    
+    let header;
+    if (this.state.scrollY > 425) {
+      header = <HeaderTwo handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+    } 
+    
     return (
       <div className="app">
-        <Header />
-        <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
-        <Route exact path="/specific-search" render={() => (<SpecificSearch search={this.state.search} />)} />
+      <Header />
+      {header}
+        
+      <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
+      <Route exact path="/specific-search" render={() => (<SpecificSearch search={this.state.search} />)} />
       </div>
     );
   }
