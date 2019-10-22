@@ -4,6 +4,7 @@ import Header from './components/Header';
 import HeaderTwo from './components/HeaderTwo';
 import Home from './components/Home';
 import SpecificSearch from './components/SpecificSearch';
+import Footer from './components/Footer';
 import { getYelp } from './services/api-helper';
 import { getYelpOnLoad } from './services/api-helper';
 import { onLoadOptions } from './services/api-helper';
@@ -91,6 +92,7 @@ class App extends React.Component {
         
       <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
       <Route exact path="/specific-search" render={() => (<SpecificSearch search={this.state.search} />)} />
+      <Footer />
       </div>
     );
   }
