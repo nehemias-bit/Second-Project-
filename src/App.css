@@ -56,6 +56,7 @@ body {
   border-radius: 5px;
   border: 1px solid black;
   font-size: 18px;
+  outline: none;
 } 
 
 #location {
@@ -66,6 +67,7 @@ body {
   border-radius: 5px;
   border: 1px solid black;
   font-size: 18px;
+  outline: none;
 }
 
 #home-search select {
@@ -74,6 +76,7 @@ body {
   border-radius: 5px;
   border: 1px solid black;
   font-size: 18px;
+  outline: none;
 }
 
 #home-search button {
@@ -83,6 +86,7 @@ body {
   border-radius: 5px;
   border: 1px solid black;
   font-size: 30px;
+  outline: none;
 }
 
 #home-search button:hover {
@@ -142,12 +146,43 @@ margin-top: 30px;
   height: 100px;
   top: 0;
   left: 0;
+  background-color: rgba(179,35,0,.9);
 }
-​
-#header-two form {
-  width: 100%;
-  height: auto;
-  margin: 0;
+
+#header-two-form {
+  display: grid;
+  grid-template-columns: 20% 20% 10% 20%;
+  margin-top: 20px;
+  margin-left: 299px;
+}
+
+#header-two-form input {
+  width: 183px;
+  line-height: 35px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 14px;
+  outline: none;
+}
+
+#header-two-form-button {
+  padding: 0px;
+  margin-left: 60px;
+  width: 140px;
+  border-radius: 5px;
+  font-size: 22px;
+  outline: none;
+}
+
+#header-two-form-button:hover {
+  border: 2px solid black;
+}
+
+.header-two-select {
+  height: 41px;
+  border: 2px solid black;
+  font-size: 14px;
+  outline: none;
 }
 
 @media only screen and (max-width:375px) {

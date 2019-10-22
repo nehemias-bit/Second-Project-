@@ -21,13 +21,13 @@ class App extends React.Component {
       restaurant: '',
       price: '',
       search: [],
-      // tracks the pages y-axis
+      // Tracks the pages y-axis.
       scrollY: null
     }
   }
 
   componentDidMount = async () => {
-    //Add window event listener
+    //Add window event listener.
     window.addEventListener('scroll', this.handleScroll)
     let location = await onLoadOptions();
     let city = location.data.city;
@@ -39,10 +39,10 @@ class App extends React.Component {
     this.setState({
       onLoad: businesses
     })
-    console.log(onLoad);
+    
   }
 
-  //Updates stae with the Y-Axis as the user scrolls
+  //Updates state with the Y-Axis as the user scrolls.
   handleScroll = () => {
     this.setState({
       scrollY: window.scrollY
@@ -60,16 +60,18 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     let userSearch = await getYelp(this.state.restaurant, this.state.location, this.state.price);
-    console.log(userSearch)
+    
     this.setState({
       search: userSearch.data.businesses
     })
-    this.props.history.push('/specific-search'); // On submit this form will route to the SpecificSearch component with the route
-    // in this render function. This history.push('/specific-search') is acting as a link
+    this.props.history.push('/specific-search');
+    // On submit this form will route to the SpecificSearch component with the route
+    // in this render function. This history.push('/specific-search') is acting as a link.
   }
 
   render() {
-    
+    //Declare a variable, that upon hitting a specific Y index, will recieve the HeaderTwo component as its value.
+    //I'm passing HeaderTwo these props because HeaderTwo is technically a form css'ed to look like a header.
     let header;
     if (this.state.scrollY > 425) {
       header = <HeaderTwo handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
@@ -78,6 +80,13 @@ class App extends React.Component {
     return (
       <div className="app">
       <Header />
+        {
+          //Then render that variable inside of curly braces(because its a variable).
+          //I also rendered the original header component above the HeaderTwo component because if I dont then the screen
+          //develops a glich when you hit the correct Y-axis for the HeaderTwo render. My normal Header component
+          //is also completely different from my HeaderTwo component.
+          //All you have to do now is create a HeaderTwo component and add css to it.
+        }  
       {header}
         
       <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
