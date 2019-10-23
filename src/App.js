@@ -9,7 +9,14 @@ import { getYelp } from './services/api-helper';
 import { getYelpOnLoad } from './services/api-helper';
 import { onLoadOptions } from './services/api-helper';
 import './App.css';
-
+import image1  from './images/1.jpg';
+import image2  from './images/2.jpg';
+import image3  from './images/3.jpg';
+import image4  from './images/4.jpg';
+import image5  from './images/5.jpg';
+import image6  from './images/6.jpg';
+import image7  from './images/7.jpg';
+import image8  from './images/8.jpg';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +30,14 @@ class App extends React.Component {
       price: '',
       search: [],
       // Tracks the pages y-axis.
-      scrollY: null
+      scrollY: null,
+      images:[image1,image2,image3,image4,image5,image6,image7,image8],
+      style: {
+        backgroundImage: '',
+        backgroundSize: '',
+        backgroundRepeat: '',
+        backgroundPosition: ""
+      }
     }
   }
 
@@ -35,12 +49,12 @@ class App extends React.Component {
     this.setState({
       city: city
     })
+    this.changeImage();
     let onLoad = await getYelpOnLoad(this.state.city)
     let businesses = onLoad.data.businesses
     this.setState({
       onLoad: businesses
     })
-    
   }
 
   //Updates state with the Y-Axis as the user scrolls.
@@ -49,6 +63,24 @@ class App extends React.Component {
       scrollY: window.scrollY
     });
   } 
+
+ 
+
+  changeImage = () => {
+    let index = Math.floor(Math.random() * 8);
+    let currentImage = this.state.images[index]
+    this.setState({
+      style: {
+        backgroundImage: `url(${currentImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: "center center",
+        backgroundAttachment: "fixed"
+      }
+    })
+  }
+
+
 
   handleChange = (event) => {
     let name = event.target.name;
@@ -79,7 +111,7 @@ class App extends React.Component {
     } 
     
     return (
-      <div className="app">
+      <div className="app" style={this.state.style}>
       <Header />
         {
           //Then render that variable inside of curly braces(because its a variable).
@@ -88,7 +120,7 @@ class App extends React.Component {
           //is also completely different from my HeaderTwo component.
           //All you have to do now is create a HeaderTwo component and add css to it.
         }  
-      {header}
+        {header}
         
       <Route exact path="/" render={() => (<Home handleChange={this.handleChange} handleSubmit={this.handleSubmit} onLoad={this.state.onLoad} />)} />
       <Route exact path="/specific-search" render={() => (<SpecificSearch search={this.state.search} />)} />
