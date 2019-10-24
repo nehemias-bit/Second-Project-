@@ -1,7 +1,5 @@
 # Project Description 
-For this project, I am using the Yelp API(specifically the /businesses/search end point). The app allows the user to search for businesses near them and recieve information about those businesses. 
-
-
+For this project, I am using the Yelp API(specifically the /businesses/search end point). The app allows the user to search for businesses anywhere in the country and 32 other countries. It also automatically displays businesses near the user once the page loads in the browser.
 
 # WireFrames
 ![Markdown Logo](https://i.imgur.com/WoKJaYh.png)
@@ -16,18 +14,15 @@ For this project, I am using the Yelp API(specifically the /businesses/search en
 
 ## Post MVP
 * Add currency exchange functionality for users that are using the app during foreign travels.
-* Make the home page background image update display a new image every time the page loads
 
 # React Component Hierarchy
 ```javascript
   <Header />
-
+  <HeaderTwo />
   <Home />
     1. <HomeSearch />
     2. <Suggestions />
-
   <SpecificHeader />
-
   <SpecificSearch />
 
   <Footer />
@@ -45,8 +40,7 @@ For this project, I am using the Yelp API(specifically the /businesses/search en
 
 ## Helper functions
 
-## Code Snippet
 
-## Issues and Resolutions
+## Code Snippet
 
 
