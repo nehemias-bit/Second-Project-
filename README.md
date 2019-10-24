@@ -39,7 +39,7 @@ For this project, I am using the Yelp API(specifically the /businesses/search en
 | Home     | Renders image background|
 | Home Search | Provides the modal for business search |
 | Suggestions | Automatically displays recomendations based on users location |
-| Specific Header | The header in this page follows the user with the same input fields so that the user can update the search if they so choose |     
+| Header Two | This header follows the user with the same input fields so that the user can update the search if they so choose |     
 | Specific Search | Takes user to a new page that renders the results of the search in Home Search |
 | Footer | Displays standard footer information                               |
 
